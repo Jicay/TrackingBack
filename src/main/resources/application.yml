@@ -1,1 +1,12 @@
-
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ec2-54-247-178-166.eu-west-1.compute.amazonaws.com:5432/dr7r1i0q0l6o1
+    username: pklxxdimmzulma
+    password: 5613ae4b31c9bdd158e9f7787390618404312a0f45439d2f6a6a6fcc2b7d7318
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: update
+    properties.hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      temp.use_jdbc_metadata_defaults: false
