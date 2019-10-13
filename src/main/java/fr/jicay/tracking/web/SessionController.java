@@ -60,7 +60,7 @@ public class SessionController {
 
     @GetMapping("/{sessionId}/mouse-positions/stream")
     public Flux<ServerSentEvent<MousePositionDTO>> streamMousePosition(@PathVariable Integer sessionId) {
-        return Flux.interval(Duration.ofMillis(1000))
+        return Flux.interval(Duration.ofMillis(100))
                 .map(sequence -> ServerSentEvent.<MousePositionDTO> builder()
                         .id(String.valueOf(sequence))
                         .event("mouse-position-event")
