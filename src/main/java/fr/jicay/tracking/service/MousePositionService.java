@@ -40,4 +40,8 @@ public class MousePositionService {
                 .setPage(m.getPage())
                 .setDate(m.getDate());
     }
+
+    public void deleteAllMousePositions() {
+        mousePositionRepository.deleteAll();
+    }
 }

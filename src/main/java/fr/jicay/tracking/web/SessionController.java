@@ -38,6 +38,14 @@ public class SessionController {
         return sessionService.createSession();
     }
 
+    @DeleteMapping
+    public ResponseEntity deleteAllSessions() {
+        mousePositionService.deleteAllMousePositions();
+        sessionService.deleteAllSessions();
+
+        return ResponseEntity.ok().build();
+    }
+
     @PostMapping("/{sessionId}/mouse-positions")
     public ResponseEntity addMousePosition(@PathVariable Integer sessionId, @RequestBody @Valid MousePositionDTO mousePosition) {
         mousePositionService.createMousePosition(sessionId, mousePosition);

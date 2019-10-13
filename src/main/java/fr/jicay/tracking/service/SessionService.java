@@ -20,4 +20,8 @@ public class SessionService {
     public Session createSession() {
         return sessionRepository.save(new Session());
     }
+
+    public void deleteAllSessions() {
+        sessionRepository.deleteAll();
+    }
 }
