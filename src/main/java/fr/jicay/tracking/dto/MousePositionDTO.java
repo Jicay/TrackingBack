@@ -1,6 +1,7 @@
 package fr.jicay.tracking.dto;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 public class MousePositionDTO {
     @NotNull
@@ -9,6 +10,8 @@ public class MousePositionDTO {
     private Double y;
     @NotNull
     private String page;
+
+    private LocalDateTime date;
 
     public Double getX() {
         return x;
@@ -34,6 +37,15 @@ public class MousePositionDTO {
 
     public MousePositionDTO setPage(String page) {
         this.page = page;
+        return this;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public MousePositionDTO setDate(LocalDateTime date) {
+        this.date = date;
         return this;
     }
 }
