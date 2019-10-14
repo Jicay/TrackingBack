@@ -3,6 +3,7 @@ package fr.jicay.tracking.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name="mouse_position")
@@ -71,5 +72,23 @@ public class MousePosition {
     public MousePosition setPage(String page) {
         this.page = page;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MousePosition that = (MousePosition) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(date, that.date) &&
+                Objects.equals(x, that.x) &&
+                Objects.equals(y, that.y) &&
+                Objects.equals(sessionId, that.sessionId) &&
+                Objects.equals(page, that.page);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, date, x, y, sessionId, page);
     }
 }

@@ -2,6 +2,7 @@ package fr.jicay.tracking.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name="session")
@@ -29,5 +30,19 @@ public class Session {
     public Session setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Session session = (Session) o;
+        return Objects.equals(id, session.id) &&
+                Objects.equals(creationDate, session.creationDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, creationDate);
     }
 }
